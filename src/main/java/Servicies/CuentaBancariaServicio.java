@@ -60,9 +60,9 @@ public class CuentaBancariaServicio {
         opcion = sc.next();
         if (opcion.equalsIgnoreCase("SI")) {
             cuentaBancaria.setSaldoActual(cuentaBancaria.getSaldoActual() - extracionRapida);
-        }else if (opcion.equalsIgnoreCase("NO")) {
-           
-        }else {
+        } else if (opcion.equalsIgnoreCase("NO")) {
+
+        } else {
             System.out.println("debe seleccionar SI o NO");
         }
 
@@ -73,38 +73,58 @@ public class CuentaBancariaServicio {
                 + "\nDNI " + cuentaBancaria.getDniCliente()
                 + "\nSaldo $" + cuentaBancaria.getSaldoActual());
     }
-    
+
     public void consultarSaldo() {
         System.out.println("Saldo $" + cuentaBancaria.getSaldoActual());
     }
-    
-     public void menu() {
-         System.out.println("MENU");
-         System.out.println("A - Ingresar datos de la cuenta");
-         System.out.println("B - Retiros");
-         System.out.println("C - Extaccion");
-         System.out.println("D - Extraccion Rapida");
-         System.out.println("E - Consultar datos Cuenta");
-         System.out.println("F - Consultar saldo");
-         String opcion = sc.next();
-         
-         switch (opcion) {
-             case "A": crearCuenta();
-                  break;
-             case "B": ingresar();
-                  break;
-             case "C": retirar();
-                  break;
-             case "D": extracionRapida();
-                  break;
-             case "E": consultarDatos();
-                  break;
-             case "F": consultarSaldo();              
-                 break;
-             default:
-                 menu();
-         }
-         
-     }
-         
+
+    public void salir() {
+
+    }
+
+    public void menu() {
+        System.out.println("MENU");
+        System.out.println("A - Ingresar datos de la cuenta");
+        System.out.println("B - Deposito");
+        System.out.println("C - Extaccion");
+        System.out.println("D - Extraccion Rapida");
+        System.out.println("E - Consultar datos Cuenta");
+        System.out.println("F - Consultar saldo");
+        System.out.println("G - Salir");
+        String opcion = sc.next();
+
+        switch (opcion.toUpperCase()) {
+            case "A":
+                crearCuenta();
+                menu();
+                break;
+            case "B":
+                ingresar();
+                menu();
+                break;
+            case "C":
+                retirar();
+                menu();
+                break;
+            case "D":
+                extracionRapida();
+                menu();
+                break;
+            case "E":
+                consultarDatos();
+                menu();
+                break;
+            case "F":
+                consultarSaldo();
+                menu();
+                break;
+            case "G":
+                salir();
+                break;
+            default:
+                break;
+        }
+
+    }
+
 }
