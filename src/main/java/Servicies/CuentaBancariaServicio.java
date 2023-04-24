@@ -57,14 +57,18 @@ public class CuentaBancariaServicio {
         String opcion;
         System.out.println("monto de extracion rapida disponible $" + extracionRapida);
         System.out.println("desea retirar?");
-        opcion = sc.next();
-        if (opcion.equalsIgnoreCase("SI")) {
-            cuentaBancaria.setSaldoActual(cuentaBancaria.getSaldoActual() - extracionRapida);
-        } else if (opcion.equalsIgnoreCase("NO")) {
+        do {
+            opcion = sc.next();
 
-        } else {
-            System.out.println("debe seleccionar SI o NO");
-        }
+            if (opcion.equalsIgnoreCase("SI")) {
+                cuentaBancaria.setSaldoActual(cuentaBancaria.getSaldoActual() - extracionRapida);
+                break;
+            } else if (opcion.equalsIgnoreCase("NO")) {
+                break;
+            } else {
+                System.out.println("debe seleccionar SI o NO");
+            }
+        } while (!opcion.equalsIgnoreCase("SI") || !opcion.equalsIgnoreCase("NO"));
 
     }
 
