@@ -20,30 +20,91 @@ public class CuentaBancariaServicio {
 
     static Scanner sc = new Scanner(System.in);
     static CuentaBancaria cuentaBancaria = new CuentaBancaria();
-    //methods
 
+    //methods
     public void crearCuenta() {
 
-        System.out.println("ingrese dni");
-        cuentaBancaria.setDniCliente(sc.nextLong());
-        System.out.println("ingrese numero de cuenta");
+        System.out.println("ingrese Numero de Cuenta");
         cuentaBancaria.setNumeroCuenta(sc.nextInt());
+        System.out.println("ingrese DNI");
+        cuentaBancaria.setDniCliente(sc.nextLong());
         System.out.println("ingrese saldo");
         cuentaBancaria.setSaldoActual(sc.nextDouble());
     }
 
-    public double ingresar() {
+    public void ingresar() {
         System.out.println("monto a ingresar");
         double ingreso = sc.nextDouble();
-        double saldoDisponible = cuentaBancaria.getSaldoActual() + ingreso;
-        return saldoDisponible;
+        cuentaBancaria.setSaldoActual(cuentaBancaria.getSaldoActual() + ingreso);
+
     }
 
-    public double retirar() {
+    public void retirar() {
         System.out.println("monto a retirar");
         double egreso = sc.nextDouble();
-        double saldoDisp = cuentaBancaria.getSaldoActual() + egreso;
-        return saldoDisp;
+
+        if (cuentaBancaria.getSaldoActual() > egreso) {
+            cuentaBancaria.setSaldoActual(cuentaBancaria.getSaldoActual() - egreso);
+        } else {
+            egreso = cuentaBancaria.getSaldoActual();
+            cuentaBancaria.setSaldoActual(0);
+        }
+
     }
 
+    public void extracionRapida() {
+        double extracionRapida = cuentaBancaria.getSaldoActual() * 0.2;
+        String opcion;
+        System.out.println("monto de extracion rapida disponible $" + extracionRapida);
+        System.out.println("desea retirar?");
+        opcion = sc.next();
+        if (opcion.equalsIgnoreCase("SI")) {
+            cuentaBancaria.setSaldoActual(cuentaBancaria.getSaldoActual() - extracionRapida);
+        }else if (opcion.equalsIgnoreCase("NO")) {
+           
+        }else {
+            System.out.println("debe seleccionar SI o NO");
+        }
+
+    }
+
+    public void consultarDatos() {
+        System.out.println("Numero de cuenta " + cuentaBancaria.getNumeroCuenta()
+                + "\nDNI " + cuentaBancaria.getDniCliente()
+                + "\nSaldo $" + cuentaBancaria.getSaldoActual());
+    }
+    
+    public void consultarSaldo() {
+        System.out.println("Saldo $" + cuentaBancaria.getSaldoActual());
+    }
+    
+     public void menu() {
+         System.out.println("MENU");
+         System.out.println("A - Ingresar datos de la cuenta");
+         System.out.println("B - Retiros");
+         System.out.println("C - Extaccion");
+         System.out.println("D - Extraccion Rapida");
+         System.out.println("E - Consultar datos Cuenta");
+         System.out.println("F - Consultar saldo");
+         String opcion = sc.next();
+         
+         switch (opcion) {
+             case "A": crearCuenta();
+                  break;
+             case "B": ingresar();
+                  break;
+             case "C": retirar();
+                  break;
+             case "D": extracionRapida();
+                  break;
+             case "E": consultarDatos();
+                  break;
+             case "F": consultarSaldo();              
+                 break;
+             default:
+                 menu();
+         }
+         
+     }
+         
 }
