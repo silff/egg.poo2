@@ -17,17 +17,93 @@ import Entities.Cafetera;
 import java.util.Scanner;
 
 public class CafeteraServicios {
-    
+
     static Scanner sc = new Scanner(System.in);
     static Cafetera cafetera = new Cafetera();
-    
+
     public void llenarCafetera() {
         cafetera.setCantidadMaxima(100);
         cafetera.setCantidadActual(cafetera.getCantidadMaxima());
     }
-    
-     public void servirTaza() {
-            
-         
+
+    public void servirTaza() {
+        System.out.println("ingrese el tamaño de la taza");
+        int taza = sc.nextInt();
+
+        if (taza <= cafetera.getCantidadActual()) {
+            cafetera.setCantidadActual(cafetera.getCantidadActual() - taza);
+        } else {
+            System.out.println("cantidad insuficiente para completar la taza");
+            System.out.println("solo se llenara hasta " + cafetera.getCantidadActual());
+            cafetera.setCantidadActual(0);
         }
+    }
+
+    public void vaciarCafetera() {
+        cafetera.setCantidadActual(0);
+    }
+
+    public void agregarCafe() {
+        System.out.println("cuanto cafe quiere agregar?");
+        int cafe = sc.nextInt();
+        if (cafe + cafetera.getCantidadActual() > cafetera.getCantidadMaxima()) {
+            System.out.println("Excede la cantidad maxima. Se completara la capacidad");
+            cafetera.setCantidadActual(cafetera.getCantidadMaxima());
+        } else {
+            cafetera.setCantidadActual(cafe + cafetera.getCantidadActual());
+        }
+    }
+
+    public void mostarCafetera() {
+        System.out.println("Cantidad actual " + cafetera.getCantidadActual()
+                + "\nCapacidad maxima " + cafetera.getCantidadMaxima());
+
+    }
+
+    public void salir() {
+
+    }
+
+    public void menu() {
+        System.out.println("MENU");
+        System.out.println("A - Llenar cafetera");
+        System.out.println("B - Servir taza");
+        System.out.println("C - Vaciar cafetera");
+        System.out.println("D - Agregar cafe");
+        System.out.println("E - Mostrar cafetera");
+        System.out.println("F - Salir");
+
+        String opcion = sc.next();
+
+        switch (opcion.toUpperCase()) {
+            case "A":
+                llenarCafetera();
+                menu();
+                break;
+            case "B":
+                servirTaza();
+                menu();
+                break;
+            case "C":
+                vaciarCafetera();
+                menu();
+                break;
+            case "D":
+                agregarCafe();
+                menu();
+                break;
+            case "E":
+                mostarCafetera();
+                menu();
+                break;
+            case "F":
+                salir();
+                menu();
+                break;
+            default:
+                break;
+        }
+
+    }
+
 }
