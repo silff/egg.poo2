@@ -100,6 +100,8 @@ public class CafeteraServicios {
                 salir();
                 break;
             default:
+                System.out.println("no es una opcion valida");
+                menu();
                 break;
         }
 

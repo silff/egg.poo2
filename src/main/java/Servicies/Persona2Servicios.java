@@ -5,9 +5,7 @@ un booleano.
 Metodo crearPersona(): el método crear persona, le pide los valores de los atributos 
 al usuario y después se le asignan a sus respectivos atributos para llenar el objeto 
 Persona. Además, comprueba que el sexo introducido sea correcto, es decir, H, M o O. 
-Si no es correcto se deberá mostrar un mensaje
-
-
+Si no es correcto se deberá mostrar un mensa
 Método calcularIMC(): calculara si la persona está en su peso ideal (peso en kg/(altura^2 en mt2)). 
 Si esta fórmula da por resultado un valor menor que 20, significa que la persona está por debajo de 
 su peso ideal y la función devuelve un -1. Si la fórmula da por resultado un número entre 20 y 25 
@@ -27,15 +25,37 @@ Para esto, podemos crear unos métodos adicionales.
  */
 package Servicies;
 
+import Entities.Persona2;
+import Entities.Persona2Sexo;
 import java.util.Scanner;
 
 public class Persona2Servicios {
-    
-    private Scanner sc = new Scanner(System.in);
-    
-    public void esMayorDeEdad() {
-        
-        
+
+    public Scanner sc = new Scanner(System.in).useDelimiter("\n");
+
+    public void crearPersona() {
+        Persona2 persona = new Persona2();
+        System.out.println("Nombre");
+        persona.setNombre(sc.nextLine());
+        System.out.println("Edad");
+        persona.setEdad(sc.nextInt());
+        System.out.println("Sexo (H/M/O)");
+        String input = sc.nextLine();
+        persona.getSexo(input.toUpperCase());
+        System.out.println("Peso");
+        persona.setPeso(sc.nextDouble());
+        System.out.println("Altura");
+        persona.setAltura(sc.nextDouble());
+    }
+
+    /* public boolean esMayorDeEdad() {
+        if (edad) {
+            
+        }
+        return ;
     }
     
+    public void calcularIMC() {
+        
+    }*/
 }

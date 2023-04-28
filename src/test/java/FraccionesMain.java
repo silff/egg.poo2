@@ -1,9 +1,8 @@
 
+import Entities.Fracciones;
+import Servicies.FraccionesServicios;
 import java.util.Scanner;
 
-/*
-
- */
 
 public class FraccionesMain {
 
@@ -11,7 +10,7 @@ public class FraccionesMain {
        
           Scanner leer = new Scanner(System.in).useDelimiter("\n");
 
-        FraccionesServicio miFraccionServicio = new FraccionesServicio();
+        FraccionesServicios miFraccionServicio = new FraccionesServicios();
         Fracciones miFraccion = miFraccionServicio.crearObjeto();
 
         int opcion;

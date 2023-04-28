@@ -1,5 +1,5 @@
 /*
- Realizar una clase llamada Persona en el paquete de entidades que tengan los 
+Realizar una clase llamada Persona en el paquete de entidades que tengan los 
 siguientes atributos: nombre, edad, sexo (‘H’ para hombre, ‘M’ para mujer, ‘O’ 
 para otro), peso y altura. Si desea añadir algún otro atributo, puede hacerlo. 
 Agregar constructores, getters y setters.
@@ -11,7 +11,7 @@ public class Persona2 {
     //attrib
     String nombre;
     int edad;
-    String sexo;
+    private Persona2Sexo sexo;
     double peso;
     double altura;
 
@@ -19,7 +19,7 @@ public class Persona2 {
     public Persona2() {
     }
 
-    public Persona2(String nombre, int edad, String sexo, double peso, double altura) {
+    public Persona2(String nombre, int edad, Persona2Sexo sexo, double peso, double altura) {
         this.nombre = nombre;
         this.edad = edad;
         this.sexo = sexo;
@@ -44,11 +44,11 @@ public class Persona2 {
         this.edad = edad;
     }
 
-    public String getSexo() {
+    public Persona2Sexo getSexo() {
         return sexo;
     }
 
-    public void setSexo(String sexo) {
+    public void setSexo(Persona2Sexo sexo) {
         this.sexo = sexo;
     }
 
