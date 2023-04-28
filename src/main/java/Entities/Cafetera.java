@@ -9,7 +9,7 @@ package Entities;
 public class Cafetera {
     
     //attrib
-    int cantidadMaxima;
+    int cantidadMaxima = 100;
     int cantidadActual;
     
     //constructors

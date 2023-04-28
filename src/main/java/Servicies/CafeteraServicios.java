@@ -18,11 +18,11 @@ import java.util.Scanner;
 
 public class CafeteraServicios {
 
-    static Scanner sc = new Scanner(System.in);
-    static Cafetera cafetera = new Cafetera();
-
+    private Scanner sc = new Scanner(System.in);
+    private Cafetera cafetera = new Cafetera();
+    
     public void llenarCafetera() {
-        cafetera.setCantidadMaxima(100);
+        //cafetera.setCantidadMaxima(100);
         cafetera.setCantidadActual(cafetera.getCantidadMaxima());
     }
 
@@ -98,7 +98,6 @@ public class CafeteraServicios {
                 break;
             case "F":
                 salir();
-                menu();
                 break;
             default:
                 break;
