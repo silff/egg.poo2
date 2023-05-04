@@ -26,26 +26,30 @@ Para esto, podemos crear unos métodos adicionales.
 package Servicies;
 
 import Entities.Persona2;
-import Entities.Persona2Sexo;
+//import Entities.Persona2Sexo;
 import java.util.Scanner;
 
 public class Persona2Servicios {
 
     public Scanner sc = new Scanner(System.in).useDelimiter("\n");
 
-    public void crearPersona() {
+    public Persona2 crearPersona() {
         Persona2 persona = new Persona2();
         System.out.println("Nombre");
         persona.setNombre(sc.nextLine());
         System.out.println("Edad");
         persona.setEdad(sc.nextInt());
-        System.out.println("Sexo (H/M/O)");
-        String input = sc.nextLine();
-        persona.getSexo(input.toUpperCase());
+        do {
+            System.out.println("Sexo (H/M/O)");
+            persona.setSexo(sc.nextLine());
+        } while (!persona.getSexo().equalsIgnoreCase("H") && !persona.getSexo().equalsIgnoreCase("M")
+                && !persona.getSexo().equalsIgnoreCase("O"));
+
         System.out.println("Peso");
         persona.setPeso(sc.nextDouble());
         System.out.println("Altura");
         persona.setAltura(sc.nextDouble());
+        return persona;
     }
 
     /* public boolean esMayorDeEdad() {
