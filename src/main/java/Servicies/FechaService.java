@@ -27,7 +27,7 @@ public class FechaService {
         int dia = sc.nextInt();
         System.out.println("mes de nacimiento");
         int mes = sc.nextInt();
-        System.out.println("anio de nacimiento");
+        System.out.println("año de nacimiento");
         int anio = sc.nextInt();
 
         LocalDate fecha = LocalDate.of(anio, mes, dia);
@@ -41,7 +41,9 @@ public class FechaService {
 
     public void diferencia() {
         LocalDate fechaNacimiento = fechaNacimiento();
+        System.out.println("fecha de nacimiento " + fechaNacimiento);
         LocalDate fechaActual = fechaActual();
+        System.out.println("fecha actual " + fechaActual());
         long edad = ChronoUnit.YEARS.between(fechaNacimiento, fechaActual);
         System.out.println("Tienes " + edad + " años.");
 
