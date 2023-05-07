@@ -12,31 +12,22 @@ su peso ideal y la función devuelve un -1. Si la fórmula da por resultado un n
 (incluidos), significa que la persona está en su peso ideal y la función devuelve un 0. Finalmente, 
 si el resultado de la fórmula es un valor mayor que 25 significa que la persona tiene sobrepeso, 
 y la función devuelve un 1.
-A continuación, en la clase main hacer lo siguiente:
-Crear 4 objetos de tipo Persona con distintos valores, a continuación, llamaremos 
-todos los métodos para cada objeto, deberá comprobar si la persona está en su peso 
-ideal, tiene sobrepeso o está por debajo de su peso ideal e indicar para cada objeto 
-si la persona es mayor de edad.
-Por último, guardaremos los resultados de los métodos calcularIMC y esMayorDeEdad 
-en distintas variables(arrays), para después calcular un porcentaje de esas 4 personas 
-cuantas están por debajo de su peso, cuantas en su peso ideal y cuantos, por encima, 
-y también calcularemos un porcentaje de cuantos son mayores de edad y cuantos menores.
-Para esto, podemos crear unos métodos adicionales.
+
  */
 package Servicies;
 
 import Entities.Persona2;
-//import Entities.Persona2Sexo;
+
 import java.util.Scanner;
 
 public class Persona2Servicios {
 
-    public Scanner sc = new Scanner(System.in).useDelimiter("\n");
+    private Scanner sc = new Scanner(System.in).useDelimiter("\n");
 
     public Persona2 crearPersona() {
         Persona2 persona = new Persona2();
         System.out.println("Nombre");
-        persona.setNombre(sc.nextLine());
+        persona.setNombre(sc.next());
         System.out.println("Edad");
         persona.setEdad(sc.nextInt());
         do {
@@ -45,21 +36,71 @@ public class Persona2Servicios {
         } while (!persona.getSexo().equalsIgnoreCase("H") && !persona.getSexo().equalsIgnoreCase("M")
                 && !persona.getSexo().equalsIgnoreCase("O"));
 
-        System.out.println("Peso");
+        System.out.println("Peso (kgs)");
         persona.setPeso(sc.nextDouble());
-        System.out.println("Altura");
+        System.out.println("Altura (mts)");
         persona.setAltura(sc.nextDouble());
         return persona;
     }
 
-    /* public boolean esMayorDeEdad() {
-        if (edad) {
-            
+    public boolean esMayorDeEdad(Persona2 persona) {
+        boolean mayor = false;
+        if (persona.getEdad() > 17) {
+            mayor = true;
         }
-        return ;
+        return mayor;
     }
-    
-    public void calcularIMC() {
-        
-    }*/
+
+    public int calcularIMC(Persona2 persona) {
+        double IMC = persona.getPeso() / (persona.getAltura() * persona.getAltura());
+
+        int ind;
+        if (IMC < 20) {
+            ind = -1;
+        } else if (IMC > 25) {
+            ind = 1;
+        } else {
+            ind = 0;
+        }
+        return ind;
+    }
+
+    public void porcentajeIMC(Persona2[] p, int[] IMC) {
+        int aux1 = 0;
+        int aux2 = 0;
+        int aux3 = 0;
+   
+        for (int i = 0; i < 4; i++) {
+            switch (IMC[i]) {
+                case -1:
+                    aux1++;
+                    break;
+                case 0:
+                    aux2++;
+                    break;
+                case 1:
+                    aux3++;
+                    break;
+                default:
+                    break;
+            }           
+        }
+        System.out.println("porcentaje bajo imc " + aux1 * 100 / 4);
+        System.out.println("porcentaje medio imc " + aux2 * 100 / 4);
+        System.out.println("porcentaje alto imc " + aux3 * 100 / 4);
+       
+    }
+
+    public void porcentajeMayoresMenores(Persona2[] p, boolean[] mayor) {   
+        int aux1 = 0;
+        int aux2 = 0;
+        double porcentaje;
+        for (int i = 0; i < 4; i++) {
+            if (mayor[i] == true) {
+                aux1++;
+            }else {
+                aux2++;
+            }
+        }
+    }
 }

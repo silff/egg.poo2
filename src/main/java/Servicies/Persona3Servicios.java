@@ -32,5 +32,10 @@ public class Persona3Servicios {
         personaS.setFechaNacimiento(LocalDate.of(anio, mes, dia));
 
         return personaS;
+        
+    }
+    
+    public void mostrarPersona(Persona3 personaS) {
+        System.out.println(personaS.getNombre() + personaS.getFechaNacimiento());
     }
 }
