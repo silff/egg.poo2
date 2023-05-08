@@ -69,7 +69,7 @@ public class Persona2Servicios {
         int aux1 = 0;
         int aux2 = 0;
         int aux3 = 0;
-   
+
         for (int i = 0; i < 4; i++) {
             switch (IMC[i]) {
                 case -1:
@@ -83,24 +83,26 @@ public class Persona2Servicios {
                     break;
                 default:
                     break;
-            }           
+            }
         }
         System.out.println("porcentaje bajo imc " + aux1 * 100 / 4);
         System.out.println("porcentaje medio imc " + aux2 * 100 / 4);
         System.out.println("porcentaje alto imc " + aux3 * 100 / 4);
-       
+
     }
 
-    public void porcentajeMayoresMenores(Persona2[] p, boolean[] mayor) {   
+    public void porcentajeMayoresMenores(Persona2[] p, boolean[] mayor) {
         int aux1 = 0;
         int aux2 = 0;
-        double porcentaje;
+
         for (int i = 0; i < 4; i++) {
             if (mayor[i] == true) {
                 aux1++;
-            }else {
+            } else {
                 aux2++;
             }
         }
+        System.out.println("porcentaje mayores " + aux1 * 100 / 4);
+        System.out.println("porcentaje menores " + aux2 * 100 / 4);
     }
 }

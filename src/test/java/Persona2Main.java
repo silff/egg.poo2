@@ -14,7 +14,7 @@ import Entities.Persona2;
 import Servicies.Persona2Servicios;
 
 public class Persona2Main {
-
+    
     public static void main(String[] args) {
         Persona2Servicios perS = new Persona2Servicios();
         Persona2[] p = new Persona2[4];
@@ -33,6 +33,7 @@ public class Persona2Main {
         }
         
         perS.porcentajeIMC(p, IMC);
+        perS.porcentajeMayoresMenores(p, mayor);
     }
-
+    
 }
