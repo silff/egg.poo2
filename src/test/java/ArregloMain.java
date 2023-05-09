@@ -12,8 +12,8 @@ public class ArregloMain {
         double A[] = new double[50];
         double B[] = new double[20];
         
-        ArregloService arr = new ArregloService
-        arr.inicializarA(A);
+        //ArregloService arr = new ArregloService
+        //arr.inicializarA(A);
                 
     }
     
