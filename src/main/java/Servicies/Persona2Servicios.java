@@ -32,7 +32,7 @@ public class Persona2Servicios {
         persona.setEdad(sc.nextInt());
         do {
             System.out.println("Sexo (H/M/O)");
-            persona.setSexo(sc.nextLine());
+            persona.setSexo(sc.next());
         } while (!persona.getSexo().equalsIgnoreCase("H") && !persona.getSexo().equalsIgnoreCase("M")
                 && !persona.getSexo().equalsIgnoreCase("O"));
 

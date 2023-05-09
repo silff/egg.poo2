@@ -11,27 +11,62 @@ nota mayor al promedio del curso
 mayor al promedio.
 Nota: para crear un vector de objetos la definición es la siguiente:
 Objeto nombreVector[] = new Objeto[];
-*/
+ */
 package Servicies;
 
 import Entities.Estudiante;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class EstudianteServicios {
-    
+
     private Scanner sc = new Scanner(System.in).useDelimiter("\n");
-    
-    public Estudiante[] crearEstudiante() {
-        
-        Estudiante[] e = new Estudiante[8];
-        double notaP;
-        for (int i = 0; i < e.length; i++) {
+
+    public Estudiante[] crearEstudiante(Estudiante[] estu) {
+
+        for (int i = 0; i < estu.length; i++) {
             System.out.println("nombre estudiante");
-            e[i].setNombre(sc.next());
-            System.out.println("nota parcial");
-            notaP = sc.nextDouble();
-            Estudiante est = new Estudiante(e[i].getNombre(), notaP);
+            String nombre = sc.next();
+            System.out.println("nota");
+            double nota = sc.nextDouble();
+            estu[i] = new Estudiante(nombre, nota);
         }
-       return e; 
-    } 
+        return estu;
+    }
+
+    public double mostrarPromedio(Estudiante[] estu) {
+        double sumaNota = 0;
+        for (Estudiante estu1 : estu) {
+            sumaNota += estu1.getNota();
+        }
+        double promedio = sumaNota / estu.length;
+        return promedio;
+    }
+
+    public String[] notaMayor(Estudiante[] estu) {
+
+        double promedio = mostrarPromedio(estu);
+        int cont = 0, indice = 0;
+        for (Estudiante estu1 : estu) {
+            if (estu1.getNota() > promedio) {
+                cont++;
+            }
+        }
+        String[] nombresMayorAlPromedio = new String[cont];
+
+        for (Estudiante estu1 : estu) {
+            if (estu1.getNota() > promedio) {
+                nombresMayorAlPromedio[indice] = estu1.getNombre();
+                indice++;
+            }
+        }
+        return nombresMayorAlPromedio;
+    }
+
+    public void mostrar(String[] nombresMayorAlPromedio) {
+
+        System.out.println("alumnos con nota mayor al promedio "
+                + Arrays.toString(nombresMayorAlPromedio));
+
+    }
 }
