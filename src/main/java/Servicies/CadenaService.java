@@ -88,8 +88,7 @@ public class CadenaService {
     public boolean contiene(Cadena cadena) {
         System.out.println("ingrese una letra a buscar");
         String letra = sc.next();
-        boolean tiene;
-        tiene = cadena.getFrase().contains(letra);
+        boolean tiene = cadena.getFrase().contains(letra);
        
         return tiene;
     }

@@ -1,41 +1,65 @@
 /* Crear una clase PersonaService, en el paquete servicio, con los siguientes 
 métodos:
-Método crearPersona que pida al usuario Nombre y fecha de nacimiento de la persona 
-a crear. Retornar el objeto Persona creado.
-Método calcularEdad que calcule la edad del usuario utilizando el atributo de fecha 
-de nacimiento y la fecha actual.
-Método menorQue recibe como parámetro una Persona y una edad. Retorna true si la 
-persona es menor que la edad consultada o false en caso contrario.
-Método mostrarPersona que muestra la información de la persona deseada.
  */
 package Servicies;
 
 import Entities.Persona3;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 public class Persona3Servicios {
 
     private Scanner sc = new Scanner(System.in).useDelimiter("\n");
 
+    /*Método crearPersona que pida al usuario Nombre y fecha de nacimiento de la 
+    persona a crear. Retornar el objeto Persona creado.*/
     public Persona3 crearPersona() {
 
-        Persona3 personaS = new Persona3();
+        Persona3 persona = new Persona3();
         System.out.println("nombre");
-        personaS.setNombre(sc.nextLine());
+        persona.setNombre(sc.nextLine());
         System.out.println("año de nacimiento");
         int anio = sc.nextInt();
+        sc.nextLine();
         System.out.println("mes de nacimiento");
         int mes = sc.nextInt();
+        sc.nextLine();
         System.out.println("dia de nacimiento");
         int dia = sc.nextInt();
-        personaS.setFechaNacimiento(LocalDate.of(anio, mes, dia));
+        sc.nextLine();
+        persona.setFechaNacimiento(LocalDate.of(anio, mes,
+                dia));
 
-        return personaS;
-        
+        return persona;
+
     }
-    
-    public void mostrarPersona(Persona3 personaS) {
-        System.out.println(personaS.getNombre() + personaS.getFechaNacimiento());
+
+    /*Método calcularEdad que calcule la edad del usuario utilizando el atributo
+    de fecha de nacimiento y la fecha actual.*/
+    public long calcularEdad(Persona3 persona) {
+
+        LocalDate fechaNacimiento = persona.getFechaNacimiento();
+        LocalDate fechaActual = LocalDate.now();
+
+        long edad = ChronoUnit.YEARS.between(fechaNacimiento,
+                fechaActual);
+       
+        return edad;
+    }
+
+    /*Método menorQue recibe como parámetro una Persona y una edad. Retorna true si la 
+    persona es menor que la edad consultada o false en caso contrario.*/
+    public boolean menorQue(Persona3 persona, long edadComparar) {
+
+        long edad = calcularEdad(persona);
+        boolean menorQue = edad > edadComparar;
+        return menorQue;
+    }
+
+    /*Método mostrarPersona que muestra la información de la persona deseada.*/
+    public void mostrarPersona(Persona3 persona) {
+
+        System.out.println(persona.getNombre() + " " + persona.getFechaNacimiento());
     }
 }
