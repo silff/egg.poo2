@@ -89,11 +89,7 @@ public class CadenaService {
         System.out.println("ingrese una letra a buscar");
         String letra = sc.next();
         boolean tiene;
-        if ( cadena.getFrase().contains(letra)) {
-            tiene = true;
-        }else {
-            tiene = false;
-        }
+        tiene = cadena.getFrase().contains(letra);
        
         return tiene;
     }
