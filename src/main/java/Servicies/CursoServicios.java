@@ -15,7 +15,7 @@ public class CursoServicios {
     que se ingrese el nombre de cada alumno.*/
     public String[] cargarAlumnos() {
         for (int i = 0; i < curso.getAlumnos().length; i++) {
-            System.out.println("alumno " + i);
+            System.out.println("alumno " + (i + 1));
             curso.getAlumnos()[i] = sc.next();
         }
         return curso.getAlumnos();
@@ -36,7 +36,7 @@ public class CursoServicios {
         curso.setCantidadHorasPorDia(sc.nextDouble());
         System.out.println("ingrese cantidad de dias por semana");
         curso.setCantidadDiasPorSemana(sc.nextInt());
-        System.out.println("ingrese turno");
+        System.out.println("ingrese turno M/T");
         curso.setTurno(sc.next());
         System.out.println("ingrese precio por hora");
         curso.setPrecio(sc.nextDouble());
