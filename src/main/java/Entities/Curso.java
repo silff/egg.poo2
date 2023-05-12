@@ -82,7 +82,7 @@ public class Curso {
 
     @Override
     public String toString() {
-        return "Curso{" + "alumnos=" + Arrays.toString(alumnos) + '}';
+        return "alumnos " + Arrays.toString(alumnos);
     }
 
     
