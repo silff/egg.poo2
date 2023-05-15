@@ -5,22 +5,27 @@ salir, se mostrará todos los perros guardados en el ArrayList.
  */
 package Servicies;
 
+import Entities.Razas;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class RazasService {
 
     private Scanner sc = new Scanner(System.in).useDelimiter("\n");
+    private ArrayList<Razas> razasLista = new ArrayList<>();
+
+    public RazasService() {
+        this.sc = new Scanner(System.in).useDelimiter("\n");
+        this.razasLista = new ArrayList<>();
+    }
 
     public void crearLista() {
-
-        ArrayList<String> raza = new ArrayList<>();
 
         String op = "";
         while (!op.equalsIgnoreCase("n")) {
             System.out.println("Ingrese una raza: ");
-
-            raza.add(sc.next());
+            String raza = sc.next();
+            razasLista.add(new Razas(raza));
             System.out.println("quiere ingresar otra? (s/n)");
             op = sc.next();
             if (op.equalsIgnoreCase("n")) {
@@ -29,8 +34,46 @@ public class RazasService {
         }
 
         System.out.println("Lista de perros: ");
-        
-            System.out.println(raza.toString());
-        
+
+        System.out.println(razasLista.toString());
+
     }
 }
+/*   private Scanner leer;
+    private ArrayList<Perro> listasPerros;
+
+    public PerroServicio() {
+        this.leer = new Scanner(System.in).useDelimiter("\n");
+        this.listasPerros = new ArrayList<>();
+    }
+
+    public void cargarPerros() {
+        String salir = " ";
+
+        do
+        {
+            System.out.println("Ingrese la raza del perro: ");
+            String razaPerro = leer.next();
+            listasPerros.add(new Perro(razaPerro));
+
+            System.out.println("Quiere cargar otro perro? N/ para salir");
+            salir = leer.next();
+        } while (salir.equalsIgnoreCase("N"));
+
+    }
+private String raza;
+
+    public Perro() {
+    }
+
+    public Perro(String raza) {
+        this.raza = raza;
+    }
+
+    public String getRaza() {
+        return raza;
+    }
+
+    public void setRaza(String raza) {
+        this.raza = raza;
+    }*/
