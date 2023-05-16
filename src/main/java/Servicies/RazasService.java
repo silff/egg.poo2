@@ -7,6 +7,8 @@ package Servicies;
 
 import Entities.Razas;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class RazasService {
@@ -32,48 +34,41 @@ public class RazasService {
                 break;
             }
         }
+    }
 
+    public void mostrarLista() {
+        
         System.out.println("Lista de perros: ");
-
         System.out.println(razasLista.toString());
+        
+    }
 
+    /*Continuando el ejercicio anterior, después de mostrar los perros, al usuario se le pedirá
+un perro y se recorrerá la lista con un Iterator, se buscará el perro en la lista. Si el perro
+está en la lista, se eliminará el perro que ingresó el usuario y se mostrará la lista
+ordenada. Si el perro no se encuentra en la lista, se le informará al usuario y se mostrará
+la lista ordenada.*/
+    public void eliminarRaza() {
+
+        Iterator<Razas> it = razasLista.iterator();
+
+        System.out.println("Ingrese la raza del perro que desea eliminar");
+        String raza = sc.next();
+
+        while (it.hasNext()) {
+            
+            if (it.next().getRaza().equalsIgnoreCase(raza)) {
+                it.remove();
+                System.out.println("La raza fue eliminada");
+               
+            } else {
+                System.out.println("No se encontró esa raza en la lista");
+            }
+        }
+        
+        System.out.println("cantidad de razas en la lista " + razasLista.size());
+        Collections.sort(razasLista,(Razas objeto1, Razas objeto2)-> objeto1.getRaza().compareTo(objeto2.getRaza()));
+        mostrarLista();
     }
 }
-/*   private Scanner leer;
-    private ArrayList<Perro> listasPerros;
 
-    public PerroServicio() {
-        this.leer = new Scanner(System.in).useDelimiter("\n");
-        this.listasPerros = new ArrayList<>();
-    }
-
-    public void cargarPerros() {
-        String salir = " ";
-
-        do
-        {
-            System.out.println("Ingrese la raza del perro: ");
-            String razaPerro = leer.next();
-            listasPerros.add(new Perro(razaPerro));
-
-            System.out.println("Quiere cargar otro perro? N/ para salir");
-            salir = leer.next();
-        } while (salir.equalsIgnoreCase("N"));
-
-    }
-private String raza;
-
-    public Perro() {
-    }
-
-    public Perro(String raza) {
-        this.raza = raza;
-    }
-
-    public String getRaza() {
-        return raza;
-    }
-
-    public void setRaza(String raza) {
-        this.raza = raza;
-    }*/

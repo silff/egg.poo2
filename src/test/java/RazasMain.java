@@ -8,6 +8,8 @@ public class RazasMain {
         
         RazasService nuevaRaza = new RazasService();
         nuevaRaza.crearLista();
+        nuevaRaza.mostrarLista();
+        nuevaRaza.eliminarRaza();
     }
     
 }
