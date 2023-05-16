@@ -4,33 +4,37 @@ con sus 3 notas.
  */
 package Entities;
 
+import java.util.ArrayList;
+
 public class Alumno {
-    
+
     private String nombre;
-    private Integer[] notas = new Integer[3];
+    private ArrayList<Integer> notas;
 
     public Alumno() {
-    }
-
-    public Alumno(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getNombre() {
-        return nombre;
+        this.notas = new ArrayList<>();
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public Integer[] getNotas() {
+    
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void agregarNota(int nota) {
+        notas.add(nota);
+    }
+
+    public ArrayList<Integer> getNotas() {
         return notas;
     }
 
-    public void setNotas(Integer[] notas) {
-        this.notas = notas;
+    @Override
+    public String toString() {
+        return "Alumno{" + "nombre=" + nombre + ", notas=" + notas + '}';
     }
-    
-    
+
 }
