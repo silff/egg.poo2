@@ -7,6 +7,7 @@ public class AlumnoMain {
       
         AlumnoService listaAlumnos = new AlumnoService();
         listaAlumnos.crearAlumnos();
+       // listaAlumnos.notaFinal();
     }
     
 }

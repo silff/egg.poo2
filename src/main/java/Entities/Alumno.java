@@ -15,17 +15,25 @@ public class Alumno {
         this.notas = new ArrayList<>();
     }
 
+    public Alumno(String nombre, ArrayList<Integer> notas) {
+        this.nombre = nombre;
+        this.notas = notas;
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    
     public String getNombre() {
         return nombre;
     }
 
     public void agregarNota(int nota) {
         notas.add(nota);
+    }
+
+    public void setNotas(ArrayList<Integer> notas) {
+        this.notas = notas;
     }
 
     public ArrayList<Integer> getNotas() {
