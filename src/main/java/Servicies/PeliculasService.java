@@ -13,8 +13,13 @@ import java.util.Scanner;
 
 public class PeliculasService {
 
-    private final Scanner sc = new Scanner(System.in).useDelimiter("\n");
-    private final ArrayList<Peliculas> listaPelis = new ArrayList();
+    private final Scanner sc;
+    private final ArrayList<Peliculas> listaPelis;
+    
+     public PeliculasService() {
+        this.sc = new Scanner(System.in).useDelimiter("\n");
+        this.listaPelis = new ArrayList<>();
+    }
 
     public void cargarPelis() {
         String opcion;

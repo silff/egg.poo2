@@ -12,6 +12,7 @@ public class Alumno {
     private ArrayList<Integer> notas;
 
     public Alumno() {
+        this.nombre = "";
         this.notas = new ArrayList<>();
     }
 
