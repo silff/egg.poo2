@@ -20,9 +20,8 @@ import java.util.Scanner;
 
 public class PeliculasService {
 
-    private Scanner sc = new Scanner(System.in).useDelimiter("\n");
-    private Peliculas p = new Peliculas();
-    ArrayList<Peliculas> listaPelis = new ArrayList();
+    private final Scanner sc = new Scanner(System.in).useDelimiter("\n");
+    private final ArrayList<Peliculas> listaPelis = new ArrayList();
 
     public void cargarPelis() {
         String opcion;
@@ -37,14 +36,14 @@ public class PeliculasService {
             //p.setDuracion(sc.nextDouble());
             double duracion = sc.nextDouble();
             listaPelis.add(new Peliculas(titulo, director, duracion));
-            System.out.println("Desea seguir ingresando peliculas?(si.no)");
+            System.out.println("Desea seguir ingresando peliculas?(s/n)");
             opcion = sc.next().toLowerCase();
-            while (!opcion.equalsIgnoreCase("si") && !opcion.equalsIgnoreCase("no")) {
+            while (!opcion.equalsIgnoreCase("s") && !opcion.equalsIgnoreCase("n")) {
                 System.out.println("Opcion invalida, pruebe otra vez");
-                System.out.println("Desa seguir ingresando peliculas?(si.no)");
+                System.out.println("Desa seguir ingresando peliculas?(s/n)");
                 opcion = sc.next().toLowerCase();
             }
-        } while (!opcion.equals("no"));
+        } while (!opcion.equals("n"));
 
     }
     /*• Mostrar en pantalla todas las películas.*/
