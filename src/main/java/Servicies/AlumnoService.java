@@ -10,24 +10,23 @@ import java.util.Scanner;
 
 public class AlumnoService {
 
-    private Scanner sc = new Scanner(System.in).useDelimiter("\n");
-    private ArrayList<Alumno> alumnos = new ArrayList();
-    private Alumno alumno = new Alumno();
-
+    private final Scanner sc;
+    private final ArrayList<Alumno> alumnos;
+    
     public AlumnoService() {
         this.sc = new Scanner(System.in).useDelimiter("\n");
         this.alumnos = new ArrayList<>();
     }
 
     public void crearAlumnos() {
-        String op = "";
-
+        String op;
+        Alumno alumno = new Alumno();
         do {
             System.out.println("Ingrese un nuevo alumno: ");
             String nombre = sc.next();
            
             int n = 3; //cantidad de notas
-            ArrayList<Integer> notas = new ArrayList<>();
+            ArrayList<Integer> notas = alumno.getNotas();
             for (int i = 0; i < n; i++) {
                 System.out.println("ingrese nota " + (i + 1));
                 int nota = sc.nextInt();
@@ -52,8 +51,8 @@ public class AlumnoService {
 
         System.out.println(alumnos.toString());
 
-        for (Alumno alumnos : alumnos) {
-            System.out.println(alumnos);
+        for (Alumno x : alumnos) {
+            System.out.println(x);
         }
 
         
