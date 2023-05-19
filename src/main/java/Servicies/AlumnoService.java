@@ -12,78 +12,42 @@ public class AlumnoService {
 
     private final Scanner sc;
     private final ArrayList<Alumno> alumnos;
-    
+
     public AlumnoService() {
         this.sc = new Scanner(System.in).useDelimiter("\n");
         this.alumnos = new ArrayList<>();
     }
 
-    public void crearAlumnos() {
+    public void crearAlumnos(int n) {
         String op;
-        Alumno alumno = new Alumno();
+
         do {
+            Alumno alumno = new Alumno();
             System.out.println("Ingrese un nuevo alumno: ");
-            String nombre = sc.next();
-           
-            int n = 3; //cantidad de notas
-            ArrayList<Integer> notas = alumno.getNotas();
+            alumno.setNombre(sc.next());
+            
             for (int i = 0; i < n; i++) {
                 System.out.println("ingrese nota " + (i + 1));
                 int nota = sc.nextInt();
-                notas.add(nota);
-
+                alumno.agregarNota(nota);
             }
-
-            alumnos.add(new Alumno(nombre, notas));
+            alumnos.add(alumno);
 
             System.out.println("quiere ingresar otro alumno? (s/n)");
             op = sc.next();
             if (op.equalsIgnoreCase("N")) {
                 break;
             }
-
             while (!op.equalsIgnoreCase("S") && !op.equalsIgnoreCase("N")) {
                 System.out.println("Ingrese una opcion valida");
                 System.out.println("Desea seguir ingresando mas alumnos: S/N");
                 op = sc.next();
             }
-        } while (op.equalsIgnoreCase("S"));
-
-        System.out.println(alumnos.toString());
-
-        for (Alumno x : alumnos) {
-            System.out.println(x);
-        }
-
-        
-
-        /* String aux;
-        do {
-
-            System.out.println("Ingrese el nombre del alumno");
-            String nombre = leer.next();
-
-            ArrayList<Integer> notas = new ArrayList();
-            int nota;
-            for (int i = 0; i < 3; i++) {
-                System.out.println("Ingrese la nota " + (i+1));
-               
-                notas.add(leer.nextInt());
-            }
-
-            Alumno alumno = new Alumno(nombre, notas);
-            alumnos.add(alumno);
-
-            System.out.println("Desea seguir ingresando mas alumnos: S/N");
-            aux = leer.next();
-            while (!aux.equalsIgnoreCase("S") && !aux.equalsIgnoreCase("N")) {
-                System.out.println("Ingrese una opcion valida");
-                System.out.println("Desea seguir ingresando mas alumnos: S/N");
-                aux = leer.next();
-            }
-
-        } while (aux.equalsIgnoreCase("S"));
-         */
+        } while (op.equalsIgnoreCase("S"));   
+    }
+    
+    public void mostrarAlumnos(){
+         System.out.println(alumnos.toString());
     }
 
     private Alumno buscarAlumno(String nombre) {

@@ -13,8 +13,8 @@ import java.util.Scanner;
 
 public class RazasService {
 
-    private Scanner sc = new Scanner(System.in).useDelimiter("\n");
-    private ArrayList<Razas> razasLista = new ArrayList<>();
+    private final Scanner sc;
+    private final ArrayList<Razas> razasLista;
 
     public RazasService() {
         this.sc = new Scanner(System.in).useDelimiter("\n");
