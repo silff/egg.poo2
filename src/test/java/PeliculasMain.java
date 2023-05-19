@@ -8,6 +8,9 @@ public class PeliculasMain {
         peliS.cargarPelis();
         peliS.mostrarPeliculas();
         peliS.mostrarPlargas();
-        peliS.ordenarDesc();
+        peliS.ordenarDuracionDesc();
+        peliS.ordenarDuracionAsc();
+        peliS.ordenarTitulo();
+        peliS.ordenarDirector();
     }
 }

@@ -9,7 +9,6 @@ package Servicies;
 import Entities.Peliculas;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Scanner;
 
 public class PeliculasService {
@@ -60,20 +59,39 @@ public class PeliculasService {
         System.out.println(pelisLargas.toString());
         System.out.println("---------------------------");
     }
+
     /*• Ordenar las películas de acuerdo a su duración (de mayor a menor) y 
     mostrarlo enpantalla.*/
-    public void ordenarDesc() {
+    public void ordenarDuracionDesc() {
         System.out.println("ORDEN DESCENDENTE DURACION");
         Collections.sort(listaPelis, Peliculas.CompararDuracion);
         Collections.reverse(listaPelis);
         System.out.println(listaPelis.toString());
         System.out.println("---------------------------");
     }
-    
-/*• Ordenar las películas de acuerdo a su duración (de menor a mayor) y mostrarlo en
-pantalla.
-• Ordenar las películas por título, alfabéticamente y mostrarlo en pantalla.
-• Ordenar las películas por director, alfabéticamente y mostrarlo en pantalla.*/
+
+    /*• Ordenar las películas de acuerdo a su duración (de menor a mayor) y mostrarlo 
+    en pantalla. */
+    public void ordenarDuracionAsc() {
+        System.out.println("ORDEN DESCENDENTE DURACION");
+        Collections.sort(listaPelis, Peliculas.CompararDuracion);
+        System.out.println(listaPelis.toString());
+        System.out.println("---------------------------");
+    }
+
+    /*• Ordenar las películas por título, alfabéticamente y mostrarlo en pantalla.*/
+    public void ordenarTitulo() {
+        System.out.println("ORDENAR POR TITULO");
+        Collections.sort(listaPelis, Peliculas.CompararTitulo);
+        System.out.println(listaPelis.toString());
+        System.out.println("---------------------------");
+    }
+
+    /*• Ordenar las películas por director, alfabéticamente y mostrarlo en pantalla.*/
+    public void ordenarDirector() {
+        System.out.println("ORDENAR POR DIRECTOR");
+        Collections.sort(listaPelis, Peliculas.CompararDirector);
+        System.out.println(listaPelis.toString());
+        System.out.println("---------------------------");
+    }
 }
-/*
-*/
