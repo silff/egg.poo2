@@ -6,8 +6,10 @@ lo que se pide a continuación:
  */
 package Entities;
 
+import java.util.Comparator;
+
 public class Peliculas {
-    
+
     private String titulo;
     private String director;
     private double duracion;
@@ -47,8 +49,30 @@ public class Peliculas {
 
     @Override
     public String toString() {
-        return "Peliculas{" + "titulo=" + titulo + ", director=" + director + ", duracion=" + duracion + '}';
+        return """ 
+               titulo """ + " " + titulo + ", director=" + director + ", duracion=" + duracion;
     }
-    
-    
-}
+    }
+
+    /*public static Comparator<Peliculas> CompararDuracion = new Comparator<Peliculas>() {
+        @Override
+        public int compare(Peliculas o1, Peliculas o2) {
+           return o1.getDuracion().compareTo(o2.getDuracion());
+        }
+    };
+
+    public static Comparator<Peliculas> CompararTitulo = new Comparator<Peliculas>() {
+        @Override
+        public int compare(Peliculas o1, Peliculas o2) {
+            return o1.getTitulo().compareTo(o2.getTitulo());
+        }
+    };
+
+    public static Comparator<Peliculas> CompararDirector = new Comparator<Peliculas>() {
+        @Override
+        public int compare(Peliculas o1, Peliculas o2) {
+            return o1.getDirector().compareTo(o2.getDirector());
+        }
+    };
+*/
+
