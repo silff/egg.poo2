@@ -22,7 +22,7 @@ import java.util.Scanner;
 
 public class Persona2Servicios {
 
-    private Scanner sc = new Scanner(System.in).useDelimiter("\n");
+    private final Scanner sc = new Scanner(System.in).useDelimiter("\n");
 
     public Persona2 crearPersona() {
         Persona2 persona = new Persona2();

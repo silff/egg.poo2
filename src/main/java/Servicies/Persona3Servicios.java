@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Persona3Servicios {
 
-    private Scanner sc = new Scanner(System.in).useDelimiter("\n");
+    private final Scanner sc = new Scanner(System.in).useDelimiter("\n");
 
     /*Método crearPersona que pida al usuario Nombre y fecha de nacimiento de la 
     persona a crear. Retornar el objeto Persona creado.*/
