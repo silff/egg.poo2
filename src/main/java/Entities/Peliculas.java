@@ -39,7 +39,7 @@ public class Peliculas {
         this.director = director;
     }
 
-    public double getDuracion() {
+    public Double getDuracion() {
         return duracion;
     }
 
@@ -51,9 +51,9 @@ public class Peliculas {
     public String toString() {
         return "\ntitulo " + titulo + ", director=" + director + ", duracion=" + duracion;
     }
-    }
+    
 
-    /*public static Comparator<Peliculas> CompararDuracion = new Comparator<Peliculas>() {
+    public static Comparator<Peliculas> CompararDuracion = new Comparator<Peliculas>() {
         @Override
         public int compare(Peliculas o1, Peliculas o2) {
            return o1.getDuracion().compareTo(o2.getDuracion());
@@ -73,5 +73,5 @@ public class Peliculas {
             return o1.getDirector().compareTo(o2.getDirector());
         }
     };
-*/
+}
 

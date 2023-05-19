@@ -3,19 +3,13 @@ al usuario todos sus datos y guardándolos en el objeto Pelicula.
 Después, esa Pelicula se guarda una lista de Peliculas y se le pregunta al usuario 
 si quiere crear otra Pelicula o no.
 Después de ese bucle realizaremos las siguientes acciones:
-
-
-• Ordenar las películas de acuerdo a su duración (de mayor a menor) y mostrarlo en
-pantalla.
-• Ordenar las películas de acuerdo a su duración (de menor a mayor) y mostrarlo en
-pantalla.
-• Ordenar las películas por título, alfabéticamente y mostrarlo en pantalla.
-• Ordenar las películas por director, alfabéticamente y mostrarlo en pantalla.
  */
 package Servicies;
 
 import Entities.Peliculas;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class PeliculasService {
@@ -46,14 +40,40 @@ public class PeliculasService {
         } while (!opcion.equals("n"));
 
     }
+
     /*• Mostrar en pantalla todas las películas.*/
-    public void MostrarPeliculas() {
-        
-            System.out.println(listaPelis.toString());
-       
+    public void mostrarPeliculas() {
+        System.out.println("MOSTRAR LISTA");
+        System.out.println(listaPelis.toString());
+        System.out.println("---------------------------");
+    }
+
+    /*• Mostrar en pantalla todas las películas con una duración mayor a 1 hora.*/
+    public void mostrarPlargas() {
+        System.out.println("PELICULAS DE MAS DE UNA HORA");
+        ArrayList<Peliculas> pelisLargas = new ArrayList<>();
+        for (Peliculas p : listaPelis) {
+            if (p.getDuracion() > 1) {
+                pelisLargas.add(p);
+            }
+        }
+        System.out.println(pelisLargas.toString());
+        System.out.println("---------------------------");
+    }
+    /*• Ordenar las películas de acuerdo a su duración (de mayor a menor) y 
+    mostrarlo enpantalla.*/
+    public void ordenarDesc() {
+        System.out.println("ORDEN DESCENDENTE DURACION");
+        Collections.sort(listaPelis, Peliculas.CompararDuracion);
+        Collections.reverse(listaPelis);
+        System.out.println(listaPelis.toString());
+        System.out.println("---------------------------");
     }
     
-    /*• Mostrar en pantalla todas las películas con una duración mayor a 1 hora.*/
+/*• Ordenar las películas de acuerdo a su duración (de menor a mayor) y mostrarlo en
+pantalla.
+• Ordenar las películas por título, alfabéticamente y mostrarlo en pantalla.
+• Ordenar las películas por director, alfabéticamente y mostrarlo en pantalla.*/
 }
 /*
 */
