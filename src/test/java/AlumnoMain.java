@@ -8,7 +8,8 @@ public class AlumnoMain {
         AlumnoService listaAlumnos = new AlumnoService();
         listaAlumnos.crearAlumnos(3);
         listaAlumnos.mostrarAlumnos();
-       // listaAlumnos.notaFinal();
+        listaAlumnos.buscarAlumno();
+       
     }
     
 }

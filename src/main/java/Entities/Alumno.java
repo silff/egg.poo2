@@ -9,14 +9,14 @@ import java.util.ArrayList;
 public class Alumno {
 
     private String nombre;
-    private ArrayList<Integer> notas;
+    private ArrayList<Double> notas;
 
     public Alumno() {
         this.nombre = "";
         this.notas = new ArrayList<>();
     }
 
-    public Alumno(String nombre, ArrayList<Integer> notas) {
+    public Alumno(String nombre, ArrayList<Double> notas) {
         this.nombre = nombre;
         this.notas = notas;
     }
@@ -29,15 +29,15 @@ public class Alumno {
         return nombre;
     }
 
-    public void agregarNota(int nota) {
+    public void agregarNota(double nota) {
         notas.add(nota);
     }
 
-    public void setNotas(ArrayList<Integer> notas) {
+    public void setNotas(ArrayList<Double> notas) {
         this.notas = notas;
     }
 
-    public ArrayList<Integer> getNotas() {
+    public ArrayList<Double> getNotas() {
         return notas;
     }
 

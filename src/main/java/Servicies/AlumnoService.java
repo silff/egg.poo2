@@ -25,7 +25,7 @@ public class AlumnoService {
             Alumno alumno = new Alumno();
             System.out.println("Ingrese un nuevo alumno: ");
             alumno.setNombre(sc.next());
-            
+
             for (int i = 0; i < n; i++) {
                 System.out.println("ingrese nota " + (i + 1));
                 int nota = sc.nextInt();
@@ -43,20 +43,11 @@ public class AlumnoService {
                 System.out.println("Desea seguir ingresando mas alumnos: S/N");
                 op = sc.next();
             }
-        } while (op.equalsIgnoreCase("S"));   
-    }
-    
-    public void mostrarAlumnos(){
-         System.out.println(alumnos.toString());
+        } while (op.equalsIgnoreCase("S"));
     }
 
-    private Alumno buscarAlumno(String nombre) {
-        for (Alumno alumno : alumnos) {
-            if (alumno.getNombre().equalsIgnoreCase(nombre)) {
-                return alumno;
-            }
-        }
-        return null;
+    public void mostrarAlumnos() {
+        System.out.println(alumnos.toString());
     }
 
     /*Después de ese bucle tendremos el siguiente método en el servicio de Alumno:
@@ -65,35 +56,26 @@ public class AlumnoService {
     al método. Dentro del método se usará la lista notas para calcular el promedio 
     final de alumno. Siendo este promedio final, devuelto por el método y mostrado
     en el main.*/
-    public void notaFinal() {
+    public void buscarAlumno() {
         System.out.println("ingrese nombre de alumno para calcular");
         String nombre = sc.next();
-        Alumno alumno = buscarAlumno(nombre);
-        System.out.println(buscarAlumno(nombre));
+        for (Alumno alumno : alumnos) {
+            if (alumno.getNombre().equalsIgnoreCase(nombre)) {
+                
+                System.out.println(notaFinal(alumno));
+                return;
+            }
+        }
+        System.out.println("alumno no encontrado");
+    }
 
+    public double notaFinal(Alumno alumno) {
+        ArrayList<Double> notas = alumno.getNotas();
+        double sum = 0;
+        for (double nota : notas) {
+            sum += nota;
+        }
+        double promedio = sum / notas.size();
+        return promedio;
     }
 }
-
-
-/*String nombre = sc.next();
-    Alumno alumno = buscarAlumno(nombre);
-    if (alumno != null) {
-        double suma = 0;
-        for (int nota : alumno.getNotas()) {
-            suma += nota;
-        }
-        double notaFinal = suma / alumno.getNotas().size();
-        System.out.println("La nota final de " + alumno.getNombre() + " es: " + notaFinal);
-    } else {
-        System.out.println("No se encontró al alumno con el nombre ingresado.");
-    }
-}
-
-private Alumno buscarAlumno(String nombre) {
-    for (Alumno alumno : alumnos) {
-        if (alumno.getNombre().equalsIgnoreCase(nombre)) {
-            return alumno;
-        }
-    }
-    return null;
-}*/
