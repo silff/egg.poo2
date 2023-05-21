@@ -23,7 +23,8 @@ public class Razas {
 
     @Override
     public String toString() {
-        return "Razas{" + "raza=" + raza + '}';
+        return """
+               """ + raza;
     }
     
 }

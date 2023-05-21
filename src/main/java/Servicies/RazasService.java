@@ -37,10 +37,10 @@ public class RazasService {
     }
 
     public void mostrarLista() {
-        
+
         System.out.println("Lista de perros: ");
         System.out.println(razasLista.toString());
-        
+
     }
 
     /*Continuando el ejercicio anterior, después de mostrar los perros, al usuario se le pedirá
@@ -54,21 +54,26 @@ la lista ordenada.*/
 
         System.out.println("Ingrese la raza del perro que desea eliminar");
         String raza = sc.next();
-
+        boolean encontrado = false;
         while (it.hasNext()) {
-            
+
             if (it.next().getRaza().equalsIgnoreCase(raza)) {
                 it.remove();
-                System.out.println("La raza fue eliminada");
-               
-            } else {
-                System.out.println("No se encontró esa raza en la lista");
+                encontrado = true;
             }
         }
-        
-        System.out.println("cantidad de razas en la lista " + razasLista.size());
-        Collections.sort(razasLista,(Razas objeto1, Razas objeto2)-> objeto1.getRaza().compareTo(objeto2.getRaza()));
+
+        if (encontrado == true) {
+            System.out.println("La raza fue eliminada");
+
+        } else {
+            System.out.println("No se encontró esa raza en la lista");
+        }
+
+        System.out.println(
+                "cantidad de razas en la lista " + razasLista.size());
+        Collections.sort(razasLista,
+                (Razas objeto1, Razas objeto2) -> objeto1.getRaza().compareTo(objeto2.getRaza()));
         mostrarLista();
     }
 }
-
