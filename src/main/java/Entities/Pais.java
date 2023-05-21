@@ -53,7 +53,6 @@ public class Pais {
     @Override
     public String toString() {
         return """
-               Pais """ + " " + pais;
+               """ + pais;
     }
-
 }

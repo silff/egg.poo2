@@ -77,7 +77,7 @@ public class PaisService {
         }
 
         if (encontrado == true) {
-            System.out.println("Pais eliminado" + "-" + nombre.toUpperCase());
+            System.out.println("Pais eliminado" + " - " + nombre.toUpperCase());
 
         } else {
             System.out.println("No se encontró el pais");
