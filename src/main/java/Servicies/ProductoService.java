@@ -20,12 +20,23 @@ public class ProductoService {
     }
 
     public void crearProductos() {
-        System.out.println("Ingrese el nombre del producto");
-        String nombre = sc.next();
-        System.out.println("Ingrese el precio del producto");
-        double precio = sc.nextDouble();
-        productos.put(nombre, precio);
-        System.out.println("Producto agregado");
+        String opcion;
+        do {
+            System.out.println("Ingrese el nombre del producto");
+            String nombre = sc.next().toLowerCase();
+            System.out.println("Ingrese el precio del producto");
+            double precio = sc.nextDouble();
+            productos.put(nombre, precio);
+            System.out.println("Producto agregado");
+            System.out.println("Desea ingresar otro?(s/n)");
+            opcion = sc.next().toLowerCase();
+            while (!opcion.equalsIgnoreCase("s") && !opcion.equalsIgnoreCase("n")) {
+                System.out.println("Opcion invalida, pruebe otra vez");
+                System.out.println("Desa ingresar otro?(s/n)");
+                opcion = sc.next().toLowerCase();
+            }
+        } while (!opcion.equals("n"));
+
     }
 
     public void modificarPrecio() {
