@@ -8,7 +8,7 @@ public class PaisMain {
         PaisService pS = new PaisService();
         pS.crearPaises();
         pS.mostrarLista();
-        pS.ordenarAlfabeticamente();
+        //pS.ordenarAlfabeticamente();
         pS.borrarPais();
     }
     

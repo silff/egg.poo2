@@ -15,8 +15,8 @@ public class PeliculasService {
 
     private final Scanner sc;
     private final ArrayList<Peliculas> listaPelis;
-    
-     public PeliculasService() {
+
+    public PeliculasService() {
         this.sc = new Scanner(System.in).useDelimiter("\n");
         this.listaPelis = new ArrayList<>();
     }
@@ -71,8 +71,7 @@ public class PeliculasService {
         System.out.println("ORDEN DESCENDENTE DURACION");
         Collections.sort(listaPelis, Peliculas.CompararDuracion);
         Collections.reverse(listaPelis);
-        System.out.println(listaPelis.toString());
-        System.out.println("---------------------------");
+        mostrarPeliculas();
     }
 
     /*• Ordenar las películas de acuerdo a su duración (de menor a mayor) y mostrarlo 
@@ -80,23 +79,20 @@ public class PeliculasService {
     public void ordenarDuracionAsc() {
         System.out.println("ORDEN DESCENDENTE DURACION");
         Collections.sort(listaPelis, Peliculas.CompararDuracion);
-        System.out.println(listaPelis.toString());
-        System.out.println("---------------------------");
+        mostrarPeliculas();
     }
 
     /*• Ordenar las películas por título, alfabéticamente y mostrarlo en pantalla.*/
     public void ordenarTitulo() {
         System.out.println("ORDENAR POR TITULO");
         Collections.sort(listaPelis, Peliculas.CompararTitulo);
-        System.out.println(listaPelis.toString());
-        System.out.println("---------------------------");
+        mostrarPeliculas();
     }
 
     /*• Ordenar las películas por director, alfabéticamente y mostrarlo en pantalla.*/
     public void ordenarDirector() {
         System.out.println("ORDENAR POR DIRECTOR");
         Collections.sort(listaPelis, Peliculas.CompararDirector);
-        System.out.println(listaPelis.toString());
-        System.out.println("---------------------------");
+        mostrarPeliculas();
     }
 }

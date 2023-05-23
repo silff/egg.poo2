@@ -9,11 +9,11 @@ package Servicies;
 import Entities.Pais;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class PaisService {
 
@@ -22,11 +22,11 @@ public class PaisService {
 
     public PaisService() {
         this.sc = new Scanner(System.in);
-        this.paises = new HashSet<>();
+        this.paises = new TreeSet<>();
     }
 
     public void crearPaises() {
-        String opcion;
+
         do {
             Pais pais = new Pais();
             System.out.println("Ingrese el pais");
@@ -34,13 +34,11 @@ public class PaisService {
 
             paises.add(pais);
             System.out.println("Desea ingresar otro?(s/n)");
-            opcion = sc.next().toLowerCase();
-            while (!opcion.equalsIgnoreCase("s") && !opcion.equalsIgnoreCase("n")) {
-                System.out.println("Opcion invalida, pruebe otra vez");
-                System.out.println("Desa ingresar otro?(s/n)");
-                opcion = sc.next().toLowerCase();
+
+            if (sc.next().equalsIgnoreCase("N")) {
+                break;
             }
-        } while (!opcion.equals("n"));
+        } while (true);
     }
 
     public void mostrarLista() {

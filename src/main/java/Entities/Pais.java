@@ -14,7 +14,7 @@ package Entities;
 
 import java.util.Objects;
 
-public class Pais {
+public class Pais implements Comparable<Pais> {
 
     private String pais;
 
@@ -55,4 +55,10 @@ public class Pais {
         return """
                """ + pais;
     }
+
+    @Override
+    public int compareTo(Pais t) {
+        return this.pais.compareTo(t.getPais());
+    }
+;
 }
