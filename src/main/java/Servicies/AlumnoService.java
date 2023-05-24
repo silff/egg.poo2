@@ -18,14 +18,14 @@ public class AlumnoService {
         this.alumnos = new ArrayList<>();
     }
 
-    public void crearAlumnos(int n) {
+    public void crearAlumnos() {
         String op;
 
         do {
             Alumno alumno = new Alumno();
             System.out.println("Ingrese un nuevo alumno: ");
             alumno.setNombre(sc.next());
-
+            int n = 3; //cantidad de notas
             for (int i = 0; i < n; i++) {
                 System.out.println("ingrese nota " + (i + 1));
                 int nota = sc.nextInt();
